@@ -24,14 +24,19 @@
                   <MenuItem fx:id="saveFile" mnemonicParsing="false" onAction="#handleSaveFileAction" text="Save">
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                     </accelerator></MenuItem>
+                     </accelerator>
+                  </MenuItem>
                   <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
+          <Menu mnemonicParsing="false" text="Code">
+			<items>
+				<MenuItem mnemonicParsing="false" onAction="#handleRunAction" text="Run">
+					<accelerator>
+						<KeyCodeCombination alt="UP" code="F5" control="UP" meta="UP" shift="UP" shortcut="UP" />
+					</accelerator>
+				</MenuItem>
+			</items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>

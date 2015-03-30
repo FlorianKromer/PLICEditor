@@ -5,17 +5,11 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 import view.JavaKeywordsAsync;
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 
 public class MainApp extends Application {
 
@@ -45,7 +39,7 @@ public class MainApp extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("Menu.fxml"));
             rootLayout = (BorderPane) loader.load();
-
+            // create the menu controller 
             MenuController controller = loader.getController();
             controller.setMainApp(this);
             
@@ -71,7 +65,9 @@ public class MainApp extends Application {
             // Set person overview into the center of root layout.
             rootLayout.setCenter(editorOverview);
             
+            //creathe editor controller
             EditorController controller = loader.getController();
+            
             controller.setMainApp(this);
             setJavaKeywords(controller.getJavaKeywords());
 

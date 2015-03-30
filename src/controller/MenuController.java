@@ -6,11 +6,25 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Iterator;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
+
+import org.antlr.v4.runtime.ANTLRErrorListener;
+import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.BaseErrorListener;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.Recognizer;
+import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
+
+import plic.AntlrDrinkListener;
+import plic.HelloLexer;
+import plic.HelloParser;
+import plic.HelloParser.DrinkSentenceContext;
 
 public class MenuController {
 	
@@ -51,6 +65,47 @@ public class MenuController {
     	} catch (IOException x) {
     	    System.err.format("IOException: %s%n", x);
     	}
+    }
+    @FXML
+    private void handleRunAction(ActionEvent event) {
+    	/**
+    	 * EXAMPLE try to replace cup 
+    	 * after replace the string by the mainApp.getJavaKeywords().getCodeArea().getText()
+    	 */
+    	
+        // Get our lexer
+        HelloLexer lexer = new HelloLexer(new ANTLRInputStream("a cup of tea"));
+     
+        // Get a list of matched tokens
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+     
+        // Pass the tokens to the parser
+        HelloParser parser = new HelloParser(tokens);
+     
+
+     
+        //debug
+        parser.addErrorListener(new BaseErrorListener() {
+            @Override
+            public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, org.antlr.v4.runtime.RecognitionException e) {
+                System.err.println("failed to parse at line " + line + " due to " + msg);
+            }
+            
+        });
+        
+        // Specify our entry point
+        DrinkSentenceContext drinkSentenceContext = parser.drinkSentence();
+        
+        // Walk it and attach our listener
+        ParseTreeWalker walker = new ParseTreeWalker();
+        AntlrDrinkListener listener = new AntlrDrinkListener();
+        walker.walk(listener, drinkSentenceContext);
+        
+        //print
+        System.out.println("Analyse depuis la grammaire:"+parser.getGrammarFileName());
+    	System.out.println("Nombre d'erreurs: "+parser.getNumberOfSyntaxErrors());
+    	
+    	
     }
 	public void openFile(File file) {
 		mainApp.setCurrentFile(file);
