@@ -74,7 +74,7 @@ public class MenuController {
     	 */
     	
         // Get our lexer
-        HelloLexer lexer = new HelloLexer(new ANTLRInputStream("a cup of tea"));
+        HelloLexer lexer = new HelloLexer(new ANTLRInputStream("a coupe of tea"));
      
         // Get a list of matched tokens
         CommonTokenStream tokens = new CommonTokenStream(lexer);

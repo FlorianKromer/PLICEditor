@@ -5,11 +5,13 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+
 import view.JavaKeywordsAsync;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Font;
 
 public class MainApp extends Application {
 
@@ -23,7 +25,8 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("PLIC Editor");
-
+//        Font.loadFont(JavaKeywordsAsync.class.getResource("OPEN.TTF").toExternalForm(), 14);
+        
         initRootLayout();
 
         addEditorView();

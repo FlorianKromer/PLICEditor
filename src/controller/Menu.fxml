@@ -6,44 +6,54 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+<BorderPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../view/application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-                  <MenuItem fx:id="newFile" mnemonicParsing="false" text="New File">
-                     <accelerator>
-                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                     </accelerator>
-                  </MenuItem>
-              <MenuItem fx:id="openFile" mnemonicParsing="false" onAction="#handleOpenFileAction" text="Open">
-                     <accelerator>
-                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                     </accelerator></MenuItem>
-                  <MenuItem fx:id="saveFile" mnemonicParsing="false" onAction="#handleSaveFileAction" text="Save">
-                     <accelerator>
-                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                     </accelerator>
-                  </MenuItem>
-                  <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Code">
-			<items>
-				<MenuItem mnemonicParsing="false" onAction="#handleRunAction" text="Run">
-					<accelerator>
-						<KeyCodeCombination alt="UP" code="F5" control="UP" meta="UP" shift="UP" shortcut="UP" />
-					</accelerator>
-				</MenuItem>
-			</items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
+      <VBox prefHeight="52.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem fx:id="newFile" mnemonicParsing="false" text="New File">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                    <MenuItem fx:id="openFile" mnemonicParsing="false" onAction="#handleOpenFileAction" text="Open">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem fx:id="saveFile" mnemonicParsing="false" onAction="#handleSaveFileAction" text="Save">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Code">
+      			<items>
+      				<MenuItem mnemonicParsing="false" onAction="#handleRunAction" text="Run">
+      					<accelerator>
+      						<KeyCodeCombination alt="UP" code="F5" control="UP" meta="UP" shift="UP" shortcut="UP" />
+      					</accelerator>
+      				</MenuItem>
+      			</items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                <Button mnemonicParsing="false" styleClass="button-play"  text="" />
+              </items>
+            </ToolBar>
+         </children>
+      </VBox>
    </top>
 </BorderPane>

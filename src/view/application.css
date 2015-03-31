@@ -1,1 +1,61 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/* 
+.button {
+    -fx-background-color:
+        linear-gradient(#f0ff35, #a9ff00),
+        radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: #395306;
+    -fx-font-family: 'Comic Sans MS', sans-serif;
+    
+}
+.button:hover {
+    -fx-background-color:
+    	radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%),
+        linear-gradient(#f0ff35, #a9ff00);
+
+}
+* */
+.root {    
+    /*default font */
+    /*-fx-font-family: Roboto-Medium,Arial,Helvetica Neue;*/
+    -fx-font-size: 14.0px;
+    -fx-font-weight: 600;
+
+}
+
+.menu-bar{
+	-fx-text-base-color: #fff;
+	-fx-background-color: #26a69a;
+	
+}
+.menu-item{
+	-fx-text-base-color: #000;
+}
+.menu-bar .label {
+    -fx-font-family:  Helvetica Neue,Helvetica,Arial,sans-serif;
+    
+}
+.tool-bar{
+	-fx-background-color: #009688;
+	-fx-text-base-color: #fff;
+}
+
+.button-play{
+  -fx-graphic: url('play.png');
+  -fx-background-color: #009688;
+
+}
+
+.button-play:hover {
+	-fx-background-color: #26a69a;
+  
+}
+.button-play:pressed{
+	-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+}
+
+.mnemonic-underline {
+    -fx-stroke: transparent;
+}
